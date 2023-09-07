@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { Button, StyleSheet, Text, View } from 'react-native';
+import { Button, ImageBackground, Pressable, StyleSheet, Text, View, Image } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useState } from 'react';
 import { PFCColors } from './colors';
@@ -8,49 +8,41 @@ import {
   NativeViewGestureHandler,
   TouchableOpacity
 } from 'react-native-gesture-handler';
+import OnBoardingImages from './src/screens/onBoarding';
 
 export default function App() {
-
-  const [value, setValue] = useState(0);
-  const OnPress = () => setValue(value + 1);
-
   return (
-    <GestureHandlerRootView>
-      <NativeViewGestureHandler>
-        <SafeAreaView style={styles.container}>
-          <Text>Count : {value}</Text>
-          <TouchableOpacity onPress={OnPress}>
-            <Text> Press here</Text>
-          </TouchableOpacity>
-          <View>
-            <Text>
-              Button
-            </Text>
-          </View>
-          <Button style={styles.Button} onPress={OnPress} title="Get Started" color={PFCColors.PRIMARY_500} />
-          <Button
-            onPress={OnPress}
-            title="Learn More"
-            color={PFCColors.PRIMARY_500}
-            accessibilityLabel="Learn more about this purple button"
-          />
-        </SafeAreaView>
-      </NativeViewGestureHandler>
-    </GestureHandlerRootView >
-
+    <OnBoardingImages />
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    padding: 10,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    //backgroundColor: '#C43B1E',
+    //alignContent: "center",
+    //justifyContent: 'center',
+  },
+  text: {
+    color: "white",
+    fontSize: 20,
+  },
+  image: {
+    flex: 1,
+    justifyContent: 'flex-end',
+  },
+  mainText: {
+    padding: 30,
+    color: "white",
+    fontSize: 34,
+    fontWeight: '800',
   },
   Button: {
+    margin: 30,
     height: 50,
-    width: 200,
-    borderRadius: 20,
+    width: 350,
+    borderRadius: 10,
+    padding: 10,
+    alignItems: 'center',
+    backgroundColor: PFCColors.PRIMARY_500,
   },
 });
